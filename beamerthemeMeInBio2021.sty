@@ -1,0 +1,188 @@
+%================================================
+% Beamer poster style for MeInBio
+% author: mct, tekman@informatik.uni-freiburg.de
+%=================================================
+\ProvidesPackage{beamerthemeMeInBio2021}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\usepackage{exscale}
+\usepackage[most]{tcolorbox}
+\RequirePackage{textcomp}
+\RequirePackage{amsmath,amssymb}
+\usefonttheme{professionalfonts}
+\newcommand{\makeruleinbox}{{\usebeamercolor[bg]{block alerted title}\centering\hspace*{-0.7cm}\rule{\inboxrule}{0.5cm}}}
+\usepackage{ragged2e}
+%\usepackage{enumitem}
+
+% (nearest thing to) Arial
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Filler
+\usepackage{lipsum}
+
+% Spacing margins
+\makeatletter
+\def\@listi{\leftmargin\leftmarginii
+\topsep 1ex % Spacing before lists
+\parsep 0\p@ \@plus\p@
+\itemsep 6pt} % Spacing between items
+\makeatother
+
+\usecaptiontemplate{\small\structure{\insertcaptionname~\insertcaptionnumber: }\insertcaption} % A fix for figure numbering
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} % required for rendering German special characters
+\usepackage{hyperref} %enable hyperlink for urls
+
+%Needed for beamer
+\usepackage[font=footnotesize,justification=justified]{caption}
+\usepackage{algorithmic,algorithm2e}
+\usepackage{natbib}
+
+\bibliographystyle{plain}
+
+
+%-----------------------------------------------------------
+% Define the main MeInBio colours
+%-----------------------------------------------------------
+\definecolor{background}	 {RGB}{255,255,255}
+\definecolor{block title} {RGB}{253,203,2}
+\definecolor{block background}{RGB}{255,255,255}  % white
+\definecolor{title background}{RGB}{37,74,165}  % blue
+\definecolor{block frame color}{RGB}{181,20,47} % weird red
+
+% set the basic colors
+\setbeamercolor{background canvas}{bg=background}
+
+% set some beamer theme options
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{blocks}[width=0.0]
+\beamertemplatenavigationsymbolsempty
+
+% set bibliography style
+\setbeamertemplate{bibliography item}[text]
+\setbeamercolor{bibliography item}{fg=black,bg=white}
+\setbeamercolor{bibliography entry author}{fg=black,bg=white}
+\setbeamercolor{bibliography item}{fg=black,bg=white}
+
+% define some length variables that are used by the template
+\newlength{\inboxwd}
+\newlength{\iinboxwd}
+\newlength{\inboxrule}
+\makeatletter
+\makeatother
+
+
+% MeInBio Margins and Spacing -- Do NOT edit unless you have to.
+\def\blockhspace{.48\textwidth}
+\def\blockvspace{1.5ex}
+\def\titlehspace{.48\textwidth}
+\def\titlewidth{0.95\textwidth}
+\def\titlevoffset{5ex}
+\def\boxmargin{8pt}
+
+% Default column size
+\newenvironment{column2}{\begin{column}{\blockhspace}}{\end{column}}
+
+
+\setbeamertemplate{headline}{
+%	\vspace*{\titlevoffset}
+  \begin{tcolorbox}[
+      enhanced,
+      arc=0mm, outer arc=0mm,
+      colframe=block frame color,
+      colback=title background,
+      toprule=\boxmargin, bottomrule=0pt,
+	  leftrule=\boxmargin, rightrule=\boxmargin,
+      titlerule=0pt,
+      fonttitle=\large\sffamily,
+	  enlarge top initially by=\titlevoffset,
+	  enlarge left by=\titlevoffset,
+      add to width=-1.55em,
+      sidebyside, lefthand width=0.06\linewidth, sidebyside gap=1em,
+      sidebyside align=center,
+      top= 3em, bottom = 3em,
+      sharp corners,
+      segmentation style={solid, white}
+    ]
+    \usebeamercolor{title in headline}{\color{white}\Large{\textbf{\insertsubtitle}}}\\[0.5ex]
+    \tcblower
+	\hspace*{5mm}\usebeamercolor{title in headline}{\color{white}\huge{\textbf{\inserttitle}}\\[0.5ex]}
+  \end{tcolorbox}
+  \vspace{-2em}
+  \begin{tcolorbox}[
+      arc=0mm, outer arc=0mm,
+      colback=title background,
+      colbacktitle=title background,
+	  colback=block background,
+      colframe=block frame color,
+      toprule=-1pt,
+      toptitle=-1pt,
+      titlerule=-1pt,
+      bottomrule=\boxmargin,
+	  leftrule=\boxmargin,
+      rightrule=\boxmargin,
+      fonttitle=\large\sffamily,
+	  enlarge left by=\titlevoffset,
+      add to width=-1.55em,
+      sharp corners,
+      bottom=-2em
+	]
+	\begin{columns}
+	  \begin{column}{0.15\linewidth}
+		\begin{figure}
+		  \centering
+		  \includegraphics[width=24ex]{imgs/unifreiburg_logo.pdf}\hspace{3ex}\vspace{3ex}
+		\end{figure}
+		\centering
+      \end{column}
+      \begin{column}{0.65\linewidth}
+        \centering
+        \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{\color{fg}\small{\insertinstitute}\\[1ex]}
+    	\vfill\vfill
+	  \end{column}
+	  \begin{column}{0.15\linewidth}
+		\begin{figure}
+		  \centering
+		  \includegraphics[width=32ex]{imgs/dfgmeinbio_logo.png}\hspace{3ex}\vspace{3ex}
+		\end{figure}
+	  \end{column}
+	\end{columns}
+  \end{tcolorbox}
+}
+
+\setbeamertemplate{block begin}{
+	\begin{tcolorbox}[adjusted title=\insertblocktitle, halign title=flush center,
+		flush left,
+        coltitle=white,
+		colbacktitle=title background,
+		colback=block background,
+        colframe=block frame color,
+        titlerule=0pt,
+        fonttitle=\large\sffamily,
+        arc=0mm, outer arc=0mm,
+	 	toprule=\boxmargin, bottomrule=\boxmargin,
+		leftrule=\boxmargin, rightrule=\boxmargin,
+	 	toptitle=1mm, bottomtitle=0mm,
+		enlarge top initially by=\blockvspace,
+%		enlarge left by=\titlevoffset
+%		before upper={\begin{minipage}[t]{\linewidth}},
+%	    after upper={\end{minipage}}
+%	    before upper={\par\vfill},
+%	    after upper={\par\vfill}
+	    ]
+
+
+}
+\setbeamertemplate{block end}{\end{tcolorbox}}
+
+
+%% Enumerate styles
+\setbeamertemplate{enumerate items}[square]
+\setbeamercolor{item projected}{bg=black,fg=white}
+\setbeamertemplate{enumerate subitem}[circle]
+\setbeamercolor{subitem projected}{bg=black!70,fg=white}
+\setbeamertemplate{caption}[numbered]

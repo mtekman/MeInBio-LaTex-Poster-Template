@@ -1,0 +1,108 @@
+\documentclass{beamer}
+\usepackage[orientation=portrait,size=a1,scale=1,debug]{beamerposter}
+\mode<presentation>{\usetheme{MeInBio2021}}
+
+\title[ShortName]{Long Title with a Shortened Subject Description}
+\author{First Author\,$^{1}$,  Second Author$^{1}$, and Last Author$^{2}$}
+\subtitle[GroupID]{X12\\\\X34}
+\institute[Address]{
+$^{1}$
+	Albert-Ludwigs-University Freiburg,
+	Division or Department,\\
+	Name of the First Group,
+	Address of the First Group, 79110 Freiburg\\
+$^{2}$
+	Albert-Ludwigs-University Freiburg,
+	Division or Department,\\
+	Name of the Second Group,
+	Address of the Second Group, 79110 Freiburg
+}
+
+\begin{document}
+
+%%% Top spacing between Headline and Content
+\vspace*{-3em}
+
+\begin{frame}[t]
+\begin{columns}[t]
+	\begin{column2}
+		\begin{block}{Background}
+%%%
+%%% Left: BACKGROUND text
+%%%
+\lipsum[66]
+		\end{block}
+		\begin{block}{Hypothesis}
+
+%%%
+%%% Left: HYPOTHESIS text
+%%%
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{example-image}
+	\label{referencetoimage}
+	\caption{\lipsum[10][1-10]}
+\end{figure}
+		\end{block}
+
+		\begin{block}{Informative Block}
+%%%
+%%% Left: INFORMATIVE BLOCK text
+%%%
+\lipsum*[26][1-10]
+\begin{enumerate}
+\item Aliquam rutrum purus at metus. Donect posuere odio at erat.
+	\begin{enumerate}
+	\item Pellentesque habitant morbi trstique senectus et netrus
+	\item Nunc sed pede. Praesent vitae lectus. Praesent neque justo, vehicula eget.
+	\end{enumerate}
+  \item Mauris metrus. Curabitur lobortis. Curabitur solicitudin hendrerit nunc.
+  \item Curabitur morbi trstique senectus et netrus.
+\end{enumerate}
+\lipsum*[27][1-5]
+		\end{block}
+
+%% 		\begin{block}{Data}
+%% %%
+%% %% Left: DATA text
+%% %%
+%% \lipsum[68]
+%% 		\end{block}
+ 	\end{column2}
+ 	\begin{column2}
+ 		\begin{block}{More data}
+%%%
+%%% Right: MORE DATA text
+%%%
+\lipsum[68][1-7]
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{example-image}
+	\label{referencetoimage}
+	\caption{\lipsum[66]}
+\end{figure}
+\lipsum[48][1-5]
+
+\begin{equation}
+ M_(e) = \int_{i}^{n} B_i^{0}
+\end{equation}
+
+\lipsum[18][1-5]
+		\end{block}
+
+	    \begin{block}{Final Block}
+\lipsum[124][1-15]
+
+%% Final bottom alignment with left column
+\vspace*{0.65em}
+
+		\end{block}
+%% \begin{block}{References}
+%% 	\fontsize{14}{10}\selectfont
+%% 	\bibliography{sample}
+%% \end{block}
+	\end{column2}
+\end{columns}
+\end{frame}
+\end{document}
