@@ -3,7 +3,7 @@
 
 Two LaTex poster templates (based on the beamerposter class) for use by the [MeInBio Consortium](https://www.meinbio.uni-freiburg.de/)
 
- ![img](https://gitlab.com/mtekman/MeInBio-LaTex-Poster-Template/uploads/d8b5b91bc24135bd56a528d65e9a9f21/example.png)
+ ![img](https://gitlab.com/mtekman/MeInBio-LaTex-Poster-Template/uploads/1970a6105eb703afbc23e63e3be16684/newlatex.png)
 
 ### Usage
 
