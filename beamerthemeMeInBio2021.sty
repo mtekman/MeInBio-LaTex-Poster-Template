@@ -11,6 +11,9 @@
 \RequirePackage{amsmath,amssymb}
 \usefonttheme{professionalfonts}
 \newcommand{\makeruleinbox}{{\usebeamercolor[bg]{block alerted title}\centering\hspace*{-0.7cm}\rule{\inboxrule}{0.5cm}}}
+%% Custom Font Sizes
+\newcommand\semihuge{\@setfontsize\semiHuge{45}{50}}
+\newcommand\semilarge{\@setfontsize\semiHuge{32}{35}}
 \usepackage{ragged2e}
 %\usepackage{enumitem}
 
@@ -34,6 +37,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel} % required for rendering German special characters
 \usepackage{hyperref} %enable hyperlink for urls
+
+\hypersetup{colorlinks=true,urlcolor=blue}
 
 %Needed for beamer
 \usepackage[font=footnotesize,justification=justified]{caption}
@@ -107,9 +112,11 @@
       sharp corners,
       segmentation style={solid, white}
     ]
-    \usebeamercolor{title in headline}{\color{white}\Large{\textbf{\insertsubtitle}}}\\[0.5ex]
+    \usebeamercolor{title in headline}{\color{white}\semihuge{\textbf{\insertsubtitle}}}\\[0.5ex]
     \tcblower
-	\hspace*{5mm}\usebeamercolor{title in headline}{\color{white}\huge{\textbf{\inserttitle}}\\[0.5ex]}
+    \begin{center}
+      \hspace*{5mm}\usebeamercolor{title in headline}{\color{white}\semihuge{\textbf{\inserttitle}}\\[0.5ex]}
+    \end{center}
   \end{tcolorbox}
   \vspace{-2em}
   \begin{tcolorbox}[
@@ -131,38 +138,42 @@
       bottom=-2em
 	]
 	\begin{columns}
-	  \begin{column}{0.15\linewidth}
+	  \begin{column}{0.1\linewidth}
 		\begin{figure}
 		  \centering
-		  \includegraphics[width=24ex]{imgs/unifreiburg_logo.pdf}\hspace{3ex}\vspace{3ex}
+		  \includegraphics[width=32ex]{imgs/unifreiburg_logo.pdf}\hspace{3ex}\vspace{3ex}
 		\end{figure}
 		\centering
       \end{column}
       \begin{column}{0.65\linewidth}
         \centering
-        \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
-        \usebeamercolor{institute in headline}{\color{fg}\small{\insertinstitute}\\[1ex]}
+        \usebeamercolor{author in headline}{\color{fg}\semilarge{\insertauthor}\\[1ex]}
+        \vspace{3em}
+        \usebeamercolor{institute in headline}{\color{fg}\semilarge{\insertinstitute}\\[1ex]}
     	\vfill\vfill
 	  \end{column}
-	  \begin{column}{0.15\linewidth}
+	  \begin{column}{0.18\linewidth}
 		\begin{figure}
 		  \centering
-		  \includegraphics[width=32ex]{imgs/dfgmeinbio_logo.png}\hspace{3ex}\vspace{3ex}
+		  \includegraphics[width=40ex]{imgs/dfgmeinbio_logo.png}\hspace{3ex}\vspace{5ex}
 		\end{figure}
 	  \end{column}
 	\end{columns}
+    \vspace*{0em}
   \end{tcolorbox}
 }
 
 \setbeamertemplate{block begin}{
 	\begin{tcolorbox}[adjusted title=\insertblocktitle, halign title=flush center,
 		flush left,
+        fontupper=\large,
+        fontlower=\large,
         coltitle=white,
 		colbacktitle=title background,
 		colback=block background,
         colframe=block frame color,
         titlerule=0pt,
-        fonttitle=\large\sffamily,
+        fonttitle=\Large\sffamily,
         arc=0mm, outer arc=0mm,
 	 	toprule=\boxmargin, bottomrule=\boxmargin,
 		leftrule=\boxmargin, rightrule=\boxmargin,
